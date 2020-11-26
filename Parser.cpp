@@ -6,6 +6,9 @@ Parser::~Parser() {}
 
 void Parser::DtsiToText(const std::string &ReadFile, const std::string &WriteFile)
 {
+    std::fstream output(WriteFile.c_str(), std::ios::out);
+    output.close();
+
     std::fstream input(ReadFile.c_str(), std::ios::in);
 
     std::string line;
