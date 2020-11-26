@@ -26,7 +26,9 @@ void Parser::DtsiToText(const std::string &ReadFile, const std::string &WriteFil
                     {
                         std::string nameOfDevice, address;
                         ExtractValuesFromLine(line, nameOfDevice, address);
-                        output << nameOfDevice << " " << address << std::endl;
+                        if (address.size() != 3) {
+                            output << nameOfDevice << " " << address << "," << std::endl;
+                        }
                     }
                     else
                     {
